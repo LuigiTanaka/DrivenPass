@@ -6,14 +6,14 @@ export async function getUserByEmail(email: string) {
     return user;
 }
 
-export async function createUser(email, password, username, pictureUrl) {
+export async function insert(email: string, password: string) {
     const SALT = 10;
     const passwordHash = bcrypt.hashSync(password, SALT);
 
-    return connection.query(`
-        INSERT INTO users 
-        (username, email, password, "pictureUrl", "createdAt") 
-        VALUES 
-        ($1, $2, $3, $4, $5)
-    `, [username, email, passwordHash, pictureUrl, now]);
+    await prisma.users.create({
+        data: {
+            email,
+            password: passwordHash,
+        },
+    });
 }
