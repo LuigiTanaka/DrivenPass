@@ -3,6 +3,7 @@ import * as authRepository from "../repositories/authRepository";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import { IAuthType } from "../types/authTypes";
 
 dotenv.config();
 
@@ -13,7 +14,12 @@ export async function signUp(email: string, password: string) {
         throw { type: "conflict", message: "email already registered" }
     }
 
-    await authRepository.insert(email, password);
+    const SALT = 10;
+    const passwordHash = bcrypt.hashSync(password, SALT);
+
+    const userData: IAuthType = { email, password: passwordHash }
+
+    await authRepository.insert(userData);
 }
 
 export async function signIn(email: string, password: string) {

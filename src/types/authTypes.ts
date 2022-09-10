@@ -1,7 +1,6 @@
-export interface IAuthType {
-    email: string;
-    password: string;
-}
+import { users } from "@prisma/client";
+
+export type IAuthType = Omit<users, "id">;
 
 export interface IJwtPayload {
     id: number

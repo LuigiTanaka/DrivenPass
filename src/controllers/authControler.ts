@@ -2,10 +2,6 @@ import { Request, Response } from 'express';
 
 import * as authService from '../services/authService';
 
-import dotenv from "dotenv";
-
-dotenv.config();
-
 export async function signUp(req: Request, res: Response) {
     const { email, password } = req.body;
 
