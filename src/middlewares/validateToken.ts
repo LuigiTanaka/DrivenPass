@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { IJwtPayload } from "../types/authTypes";
+import { IJwtPayload } from "../types/authType";
 
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";

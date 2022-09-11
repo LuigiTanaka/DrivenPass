@@ -1,5 +1,5 @@
 import joi from "joi";
-import { IAuthType } from "../types/authTypes";
+import { IAuthType } from "../types/authType";
 
 const signSchema = joi.object<IAuthType>({
     email: joi.string().email().required(),

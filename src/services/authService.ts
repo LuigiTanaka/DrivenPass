@@ -3,7 +3,7 @@ import * as authRepository from "../repositories/authRepository";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-import { IAuthType } from "../types/authTypes";
+import { IAuthType } from "../types/authType";
 
 dotenv.config();
 
