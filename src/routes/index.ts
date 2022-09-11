@@ -8,6 +8,10 @@ import wifiRouter from "./wifiRouter";
 
 const router = Router();
 
+router.get("/", (req, res) => {
+    res.send("Online");
+})
+
 router.use(authRouter);
 router.use(credentialRouter);
 router.use(secureNoteRouter);
