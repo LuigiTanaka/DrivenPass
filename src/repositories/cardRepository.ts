@@ -3,7 +3,6 @@ import prisma from "../databases/database";
 import { ICardCreateType } from "../types/cardType";
 
 export async function insert(cardData: ICardCreateType) {
-    console.log(cardData);
     await prisma.cards.create({ data: cardData });
 }
 
